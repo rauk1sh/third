@@ -68,11 +68,17 @@ Task Manager — это простое веб-приложение для упр
 - Общие настройки:
 
 body {
+    
     margin: 0;
+    
     padding: 0;
+    
     height: 100vh;
+    
     font-family: 'Montserrat', sans-serif;
+    
     background-image: linear-gradient(to bottom right, rgb(34,14,105), rgb(10,213,240));
+
 }
 
 - Используется градиент для фона.
@@ -82,32 +88,54 @@ body {
 - Контейнер и содержимое:
 
 .container {
+    
     display: flex;
+    
     justify-content: center;
+    
     align-items: center;
+    
     height: 100vh;
+
 }
+
 .content {
+    
     background-color: white;
+    
     min-height: 400px;
+    
     width: 540px;
+    
     padding: 20px;
+    
     border-radius: 10px;
+
 }
 
 
 - Стили кнопок задач:
 
 -  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
+
+   padding: 10px 20px;
+
+   background-color: #007bff;
+
+   border: none;
+
+   border-radius: 5px;
+
+   color: white;
+
+   cursor: pointer;
+
 }
+
 .delete-btn {
+    
     background-color: #dc3545;
+
 }
 
 
@@ -119,10 +147,12 @@ body {
 1. Добавление задачи:
 
 addBtn.addEventListener('click', () => {
+   
     if (taskInput.value !== "") {
         addTask(taskInput.value);
         taskInput.value = "";                        
     }
+
 });
 
 - При нажатии на кнопку "Add Task" задача добавляется в список.
@@ -131,6 +161,7 @@ addBtn.addEventListener('click', () => {
 2. Создание новой задачи:
 
 function addTask(taskText) {
+    
     const listItem = document.createElement("li");
     listItem.innerHTML = `
         <span class="task-text">${taskText}</span>
@@ -145,6 +176,7 @@ function addTask(taskText) {
 3. Обработка событий:
 
 taskList.addEventListener('click', (event) => {
+    
     const listItem = event.target.parentElement;
 
     if (event.target.classList.contains("delete-btn")) {
