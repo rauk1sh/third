@@ -21,24 +21,35 @@ Task Manager — это простое веб-приложение для упр
 
 Заголовок и подключение стилей/шрифтов:
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="style.css">
     <title>Task Manager</title>
+
 </head>
 
 Основной контент:
 
 <body>
+    
     <div class="container">
+        
         <div class="content">
+            
             <h1>Task Manager</h1>
+            
             <input type="text" id="task-input" placeholder="Add a new task...">
+            
             <button id="add-btn">Add Task</button>
+            
             <ul id="task-list"></ul>
+        
         </div>
+    
     </div>
+
 </body>
 
 
