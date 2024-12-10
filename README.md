@@ -118,17 +118,17 @@ body {
 
 -  button {
 
-   padding: 10px 20px;
+       padding: 10px 20px;
 
-   background-color: #007bff;
+       background-color: #007bff;
 
-   border: none;
+       border: none;
 
-   border-radius: 5px;
+       border-radius: 5px;
 
-   color: white;
+       color: white;
 
-   cursor: pointer;
+       cursor: pointer;   
 
 }
 
