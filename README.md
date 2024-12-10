@@ -20,37 +20,38 @@ Task Manager — это простое веб-приложение для упр
 Файл index.html содержит следующие основные элементы:
 
 Заголовок и подключение стилей/шрифтов:
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="style.css">
-    <title>Task Manager</title>
 
-</head>
+    <head>
+    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="style.css">
+        <title>Task Manager</title>
+
+    </head>
 
 Основной контент:
 
-<body>
+    <body>
     
-    <div class="container">
-        
-        <div class="content">
+        <div class="container">
             
-            <h1>Task Manager</h1>
+            <div class="content">
+                
+                <h1>Task Manager</h1>
+                
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                
+                <button id="add-btn">Add Task</button>
+                
+                <ul id="task-list"></ul>
             
-            <input type="text" id="task-input" placeholder="Add a new task...">
-            
-            <button id="add-btn">Add Task</button>
-            
-            <ul id="task-list"></ul>
+            </div>
         
         </div>
-    
-    </div>
 
-</body>
+    </body>
 
 
 Описание ключевых элементов:
@@ -67,19 +68,19 @@ Task Manager — это простое веб-приложение для упр
 Основные элементы стиля:
 - Общие настройки:
 
-body {
+        body {
     
-    margin: 0;
+        margin: 0;
     
-    padding: 0;
+        padding: 0;
     
-    height: 100vh;
+        height: 100vh;
     
-    font-family: 'Montserrat', sans-serif;
+        font-family: 'Montserrat', sans-serif;
     
-    background-image: linear-gradient(to bottom right, rgb(34,14,105), rgb(10,213,240));
+        background-image: linear-gradient(to bottom right, rgb(34,14,105), rgb(10,213,240));
 
-}
+        }
 
 - Используется градиент для фона.
 - Шрифт "Montserrat" подключён из Google Fonts.
@@ -87,36 +88,36 @@ body {
 
 - Контейнер и содержимое:
 
-.container {
+        .container {
     
-    display: flex;
+        display: flex;
     
-    justify-content: center;
+        justify-content: center;
     
-    align-items: center;
+        align-items: center;
     
-    height: 100vh;
+        height: 100vh;
 
-}
+        }
 
-.content {
+        .content {
     
-    background-color: white;
+        background-color: white;
     
-    min-height: 400px;
+        min-height: 400px;
     
-    width: 540px;
+        width: 540px;
     
-    padding: 20px;
+        padding: 20px;
     
-    border-radius: 10px;
+        border-radius: 10px;
 
-}
+        }
 
 
 - Стили кнопок задач:
 
--  button {
+-      button {
 
        padding: 10px 20px;
 
@@ -130,13 +131,13 @@ body {
 
        cursor: pointer;   
 
-}
+        }
 
-.delete-btn {
+        .delete-btn {
     
-    background-color: #dc3545;
+        background-color: #dc3545;
 
-}
+        }
 
 
 
@@ -146,52 +147,52 @@ body {
 Основные функции:
 1. Добавление задачи:
 
-addBtn.addEventListener('click', () => {
+        addBtn.addEventListener('click', () => {
    
-    if (taskInput.value !== "") {
-        addTask(taskInput.value);
-        taskInput.value = "";                        
-    }
+            if (taskInput.value !== "") {
+            addTask(taskInput.value);
+            taskInput.value = "";                        
+            }
 
-});
+        });
 
 - При нажатии на кнопку "Add Task" задача добавляется в список.
 
 
 2. Создание новой задачи:
 
-function addTask(taskText) {
+        function addTask(taskText) {
     
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `
-        <span class="task-text">${taskText}</span>
-        <button class="done-btn">Done</button>
-        <button class="edit-btn">Edit</button>
-        <button class="delete-btn">Delete</button>
-    `;
-    taskList.appendChild(listItem);
-}
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <span class="task-text">${taskText}</span>
+                <button class="done-btn">Done</button>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            `;
+            taskList.appendChild(listItem);
+        }
 
 
 3. Обработка событий:
 
-taskList.addEventListener('click', (event) => {
+        taskList.addEventListener('click', (event) => {
     
-    const listItem = event.target.parentElement;
-
-    if (event.target.classList.contains("delete-btn")) {
-        taskList.removeChild(listItem);
-    } else if (event.target.classList.contains("done-btn")) {
-        const taskText = listItem.querySelector('.task-text');
-        taskText.classList.toggle('done');
-    } else if (event.target.classList.contains("edit-btn")) {
-        const taskText = listItem.querySelector('.task-text');
-        const newText = prompt("Edit the task:", taskText.textContent);
-        if (newText !== null && newText.trim() !== "") {
-            taskText.textContent = newText;
-        }
-    }
-});
+            const listItem = event.target.parentElement;
+        
+            if (event.target.classList.contains("delete-btn")) {
+                taskList.removeChild(listItem);
+            } else if (event.target.classList.contains("done-btn")) {
+                const taskText = listItem.querySelector('.task-text');
+                taskText.classList.toggle('done');
+            } else if (event.target.classList.contains("edit-btn")) {
+                const taskText = listItem.querySelector('.task-text');
+                const newText = prompt("Edit the task:", taskText.textContent);
+                if (newText !== null && newText.trim() !== "") {
+                    taskText.textContent = newText;
+                }
+            }
+        });
 
 Функции:
 
